@@ -12,6 +12,13 @@ const typeDefs = `#graphql
     address: String!
     location: Point!
     reviews: [Review!]! @relationship(type: "REVIEWS", direction: IN)
+    categories: [Category!]! @relationship(type: "IN_CATEGORY", direction: OUT)
+    }
+
+    type User {
+    userID: ID!
+    name: String!
+    reviews: [Review!]! @relationship(type: "WROTE", direction: OUT)
     }
 
     type Review {
@@ -19,6 +26,13 @@ const typeDefs = `#graphql
     stars: Float!
     date: Date!
     text: String
+    user: User! @relationship(type: "WROTE", direction: IN)
+    business: Business! @relationship(type: "REVIEWS", direction: OUT)
+  }
+
+  type Category {
+    name: String!
+    businesses: [Business!]! @relationship(type: "IN_CATEGORY", direction: IN)
   }
 `;
 
