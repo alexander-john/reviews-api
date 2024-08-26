@@ -4,20 +4,27 @@ import { Neo4jGraphQL } from "@neo4j/graphql";
 import neo4j from "neo4j-driver";
 
 const typeDefs = `#graphql
-    type Movie {
-        title: String
-        actors: [Actor!]! @relationship(type: "ACTED_IN", direction: IN)
+    type Business {
+    businessId: ID!
+    name: String!
+    city: String!
+    state: String!
+    address: String!
+    location: Point!
+    reviews: [Review!]! @relationship(type: "REVIEWS", direction: IN)
     }
 
-    type Actor {
-        name: String
-        movies: [Movie!]! @relationship(type: "ACTED_IN", direction: OUT)
-    }
+    type Review {
+    reviewId: ID!
+    stars: Float!
+    date: Date!
+    text: String
+  }
 `;
 
 const driver = neo4j.driver(
-    "bolt://localhost:7687",
-    neo4j.auth.basic("neo4j", "letmein")
+    "bolt://44.201.78.85:7687",
+    neo4j.auth.basic("neo4j", "reverse-blade-networks")
 );
 
 const neoSchema = new Neo4jGraphQL({ typeDefs, driver });
