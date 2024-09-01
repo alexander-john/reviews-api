@@ -19,6 +19,7 @@ const typeDefs = `#graphql
     }
     type Business {
     businessId: ID!
+    waitTime: Int!
     averageStars: Float!
     @cypher(
         statement: "MATCH (this)<-[:REVIEWS]-(r:Review) RETURN avg(r.stars)"
@@ -64,7 +65,17 @@ const typeDefs = `#graphql
   }
 `;
 
+// resolvers
 
+const resolvers = {
+    Business: {
+      waitTime: (obj, args, context, info) => {
+        var options = [0, 5, 10, 15, 30, 45];
+        return options[Math.floor(Math.random() * options.length)];
+      },
+    },
+  };
+  
 
 // apollo server
 
@@ -73,7 +84,7 @@ const driver = neo4j.driver(
     neo4j.auth.basic("neo4j", "reverse-blade-networks")
 );
 
-const neoSchema = new Neo4jGraphQL({ typeDefs, driver });
+const neoSchema = new Neo4jGraphQL({ typeDefs, resolvers, driver });
 
 const server = new ApolloServer({
     schema: await neoSchema.getSchema(),
