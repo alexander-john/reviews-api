@@ -6,6 +6,17 @@ import neo4j from "neo4j-driver";
 // schema
 
 const typeDefs = `#graphql
+    type Query {
+        fuzzyBusinessByName(searchString: String): [Business!]!
+        @cypher(
+            statement:
+            """
+            CALL db.index.fulltext.queryNodes( 'businessNameIndex', $searchString+'~')
+            YIELD node RETURN node
+            """
+            columnName: "result"
+        )
+    }
     type Business {
     businessId: ID!
     averageStars: Float!
@@ -16,9 +27,11 @@ const typeDefs = `#graphql
     recommended(first: Int = 1): [Business!]!
     @cypher(
         statement:
-        """MATCH (this)<-[:REVIEWS]-(:Review)<-[:WROTE]-(:User)-[:WROTE]->(:Review)-[:REVIEWS]->(rec:Business)
+        """
+        MATCH (this)<-[:REVIEWS]-(:Review)<-[:WROTE]-(:User)-[:WROTE]->(:Review)-[:REVIEWS]->(rec:Business)
         WITH rec, COUNT(*) AS score
-        RETURN rec ORDER BY score DESC LIMIT $first"""
+        RETURN rec ORDER BY score DESC LIMIT $first
+        """
         columnName: "result"
     )
     name: String!
