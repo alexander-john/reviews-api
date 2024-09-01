@@ -10,12 +10,17 @@ const typeDefs = `#graphql
     businessId: ID!
     averageStars: Float!
     @cypher(
-        statement: """
-        MATCH (this)<-[:REVIEWS]-(r:Review) RETURN avg(r.stars)
-        """
-
+        statement: "MATCH (this)<-[:REVIEWS]-(r:Review) RETURN avg(r.stars)"
         columnName: "result"
         )
+    recommended(first: Int = 1): [Business!]!
+    @cypher(
+        statement:
+        """MATCH (this)<-[:REVIEWS]-(:Review)<-[:WROTE]-(:User)-[:WROTE]->(:Review)-[:REVIEWS]->(rec:Business)
+        WITH rec, COUNT(*) AS score
+        RETURN rec ORDER BY score DESC LIMIT $first"""
+        columnName: "result"
+    )
     name: String!
     city: String!
     state: String!
