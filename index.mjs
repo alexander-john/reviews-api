@@ -3,9 +3,19 @@ import { startStandaloneServer } from '@apollo/server/standalone';
 import { Neo4jGraphQL } from "@neo4j/graphql";
 import neo4j from "neo4j-driver";
 
+// schema
+
 const typeDefs = `#graphql
     type Business {
     businessId: ID!
+    averageStars: Float!
+    @cypher(
+        statement: """
+        MATCH (this)<-[:REVIEWS]-(r:Review) RETURN avg(r.stars)
+        """
+
+        columnName: "result"
+        )
     name: String!
     city: String!
     state: String!
@@ -35,6 +45,10 @@ const typeDefs = `#graphql
     businesses: [Business!]! @relationship(type: "IN_CATEGORY", direction: IN)
   }
 `;
+
+
+
+// apollo server
 
 const driver = neo4j.driver(
     "bolt://44.201.78.85:7687",
