@@ -1,0 +1,1 @@
+{"version":3,"file":"generate-graphql-safe-name.d.ts","sourceRoot":"","sources":["../../../../src/transforms/neo4j-graphql/utils/generate-graphql-safe-name.ts"],"names":[],"mappings":"AAmBA,MAAM,CAAC,OAAO,UAAU,uBAAuB,CAAC,KAAK,EAAE,MAAM,GAAG,MAAM,CAKrE"}

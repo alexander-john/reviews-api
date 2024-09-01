@@ -1,0 +1,1 @@
+{"version":3,"file":"types.d.ts","sourceRoot":"","sources":["../../../src/transforms/neo4j-graphql/types.ts"],"names":[],"mappings":"AAmBA,MAAM,MAAM,SAAS,GAAG,IAAI,GAAG,KAAK,CAAC;AACrC,MAAM,WAAW,SAAS;IACtB,QAAQ,IAAI,MAAM,CAAC;CACtB;AAED,MAAM,MAAM,gBAAgB,GAAG,QAAQ,GAAG,MAAM,GAAG,QAAQ,GAAG,QAAQ,CAAC"}

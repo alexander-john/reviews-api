@@ -1,0 +1,1 @@
+{"version":3,"file":"RelationshipProperties.d.ts","sourceRoot":"","sources":["../../../../src/transforms/neo4j-graphql/directives/RelationshipProperties.ts"],"names":[],"mappings":"AAmBA,OAAO,KAAK,EAAE,SAAS,EAAE,MAAM,UAAU,CAAC;AAE1C,qBAAa,+BAAgC,YAAW,SAAS;IAC7D,QAAQ,IAAI,MAAM;CAGrB"}

@@ -1,0 +1,1 @@
+{"version":3,"file":"create-node-fields.d.ts","sourceRoot":"","sources":["../../../../src/transforms/neo4j-graphql/utils/create-node-fields.ts"],"names":[],"mappings":"AAoBA,OAAO,KAAK,QAAQ,MAAM,2BAA2B,CAAC;AACtD,OAAO,EAAE,SAAS,EAAE,MAAM,cAAc,CAAC;AAMzC,MAAM,CAAC,OAAO,UAAU,gBAAgB,CAAC,YAAY,EAAE,QAAQ,EAAE,EAAE,WAAW,EAAE,MAAM,GAAG,SAAS,EAAE,CAqBnG"}

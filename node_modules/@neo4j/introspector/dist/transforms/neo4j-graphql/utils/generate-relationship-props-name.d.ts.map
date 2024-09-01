@@ -1,0 +1,1 @@
+{"version":3,"file":"generate-relationship-props-name.d.ts","sourceRoot":"","sources":["../../../../src/transforms/neo4j-graphql/utils/generate-relationship-props-name.ts"],"names":[],"mappings":"AAsBA,MAAM,CAAC,OAAO,UAAU,6BAA6B,CAAC,OAAO,EAAE,MAAM,GAAG,MAAM,CAE7E"}

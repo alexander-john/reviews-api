@@ -1,0 +1,1 @@
+{"version":3,"file":"pascal-case.js","sourceRoot":"","sources":["../../src/utils/pascal-case.ts"],"names":[],"mappings":";AAAA;;;;;;;;;;;;;;;;;GAiBG;;;;;AAEH,0DAAkC;AAElC,SAAwB,UAAU,CAAC,GAAW;IAC1C,IAAI,CAAC,GAAG,CAAC,MAAM,EAAE;QACb,OAAO,GAAG,CAAC;KACd;IACD,OAAO,GAAG,CAAC,CAAC,CAAC,CAAC,WAAW,EAAE,GAAG,IAAA,mBAAS,EAAC,GAAG,CAAC,KAAK,CAAC,CAAC,CAAC,CAAC,CAAC;AAC1D,CAAC;AALD,6BAKC"}
