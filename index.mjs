@@ -80,8 +80,8 @@ const resolvers = {
 // apollo server
 
 const driver = neo4j.driver(
-    "bolt://44.201.78.85:7687",
-    neo4j.auth.basic("neo4j", "reverse-blade-networks")
+    "bolt://54.82.232.78:7687",
+    neo4j.auth.basic("neo4j", "rack-grinders-steams")
 );
 
 const neoSchema = new Neo4jGraphQL({ typeDefs, resolvers, driver });

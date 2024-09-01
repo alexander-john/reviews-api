@@ -3,8 +3,8 @@ import fs from "fs";
 import neo4j from "neo4j-driver";
 
 const driver = neo4j.driver(
-    "neo4j://localhost:7687",
-    neo4j.auth.basic("username", "password")
+    "bolt://54.82.232.78:7687",
+    neo4j.auth.basic("neo4j", "rack-grinders-steams")
 );
 
 const sessionFactory = () => driver.session({ defaultAccessMode: neo4j.session.READ })
