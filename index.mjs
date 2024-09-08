@@ -84,7 +84,13 @@ const driver = neo4j.driver(
     neo4j.auth.basic("neo4j", "rack-grinders-steams")
 );
 
-const neoSchema = new Neo4jGraphQL({ typeDefs, resolvers, driver });
+const neoSchema = new Neo4jGraphQL({ typeDefs, resolvers, driver, config: 
+  {
+    jwt: {
+      jwksEndpoint: https://dev-0zpw8pjgpe085nnn.us.auth0.com/.well-known/jwks.json,
+    }
+  } 
+});
 
 const server = new ApolloServer({
     schema: await neoSchema.getSchema(),
